@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'saraa_app/css/sign_in.css' %}">
+</head>
+
+<body>
+
+    <div class="container">
+        <div>
+            <h2>Welcome to Saraa 🙂</h2>
+            <div class="signup">
+                </div>
+                <div class="containerx">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <input type="email" name="email" placeholder="Enter your email" required>
+                        <button type="submit">Continue</button>
+                    </form>
+                    {% if messages %}
+                    {% for message in messages %}
+                    <p><strong>{{ message }}</strong></p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="divider">
+                    <hr class="left" /> OR
+                    <hr class="right" />
+                </div>
+                <div id="g_id_onload"
+                    data-client_id="43037350899-7haccjpnib35g9265340q9hig1ktopgg.apps.googleusercontent.com"
+                    data-context="signin" data-ux_mode="redirect" data-login_uri="http://localhost:8000/auth-receiver"
+                    data-itp_support="true">
+                </div>
+                <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline"
+                    data-text="signin_with" data-size="large" data-logo_alignment="left">
+                </div>
+        </div>
+
+</body>
+
+</html>
